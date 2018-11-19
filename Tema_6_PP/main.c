@@ -70,7 +70,7 @@ void Problema3()
 	for (int i = k - 1; i >= 0; i--)
 		fprintf(out, "%s", full_file[i]);
 	
-	printf("Fisierul are %d linii\n", k);
+	printf("Fisierul are %d linii\n", k);gi
 	fclose(in);
 	fclose(out);
 }
