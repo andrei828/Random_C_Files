@@ -32,7 +32,6 @@ void Problema1()
 	int n;
 	scanf("%d", &n);
 
-
 	Client * tmp = (Client *) malloc(sizeof(Client));
 	unsigned char bit_paritate, stare_civila; // 'char' pentru alocare eficienta a memoriei
 
@@ -94,7 +93,6 @@ void Problema3()
 
 	// sortare baza de date
 	for (int i = 0; i < k - 1; i++)
-	{
 		for (int j = i + 1; j < k; j++)
 			if (clients[i].stare_civila > clients[j].stare_civila)
 			{
@@ -103,7 +101,6 @@ void Problema3()
 				clients[i] = clients[j];
 				clients[j] = tmp;
 			}
-	}
 
 	// scriere fisier
 	FILE * out = fopen("baza_de_date.txt", "w");
