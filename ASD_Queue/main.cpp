@@ -73,7 +73,24 @@ void Problema1()
 
 void Problema2(int * trains)
 {
-    
+    int j, y, k1;
+    j = 1; push(x,CC[j]);
+    for(i=2;i<=k;i++)
+    {
+        y = pop(trains) 
+        k1 = 1; 
+        
+        while(k1 <= j && trains > y) 
+            k1++; 
+        
+        if (k1 <= j) push(y,CC[k1]); 
+    }
+for (i=1; i <= n; i++)
+{ int min,p, k = 1; 
+if (k <= j) {min = CC[k][val];
+p = k;} 
+if (c[k1]!=NULL && CC[k1][val]<min) {min = CC[k1][val]; p = k1;}
+pop(CC[p]);
 }
 
 void push(int a, Node *& queue)
