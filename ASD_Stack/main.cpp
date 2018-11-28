@@ -22,7 +22,6 @@ void problema2();
 void paranteze(char * tmp);
 
 // Circuite problema 4
-bool frecv[100];
 void problema4();
 
 int main()
@@ -42,21 +41,16 @@ void problema4()
 	for (int i = 0; i < n; i++)
 	{
 		cin >> a[i];
-		if (frecv[a[i]] == 0)
-		{
-			push(a[i], stack);
-			frecv[a[i]] = 1;
-		}
-		else if (empty(stack) == 0 && peek(stack) == a[i])
+		
+		if (peek(stack) == a[i])
 			pop(stack);
 		else 
-		{
-			cout << "Bad array";
-			return;
-		}
+			push(a[i], stack);
 	} 
 	if (empty(stack))
 		cout << "Good array";
+	else 
+		cout << "Bad array";
 }
 
 void problema2()
@@ -67,10 +61,18 @@ void problema2()
 
 	cin >> n;
 	for (int i = 0; i < n; i++)
-		if (a[i] == 'a')
+		if (a[i] == 'a' && peek(stack) == -1)
 			push(1, stack);
-		else 
+		else if (a[i] == 'b' && peek(stack) == -1)
+			push(0, stack);
+		else if (a[i] == 'a' && peek(stack) == 0)
 			pop(stack);
+		else if (a[i] == 'a' && peek(stack) == 1)
+			push(1, stack);
+		else if (a[i] == 'b' && peek(stack) == 1)
+			pop(stack);
+		else if (a[i] == 'b' && peek(stack) == 0)
+			push(0, stack);
 
 	if (empty(stack) == 1)
 		cout << "Acelasi numar de 'a' si 'b'\n";
@@ -83,9 +85,7 @@ void paranteze(char * tmp)
 	Node * stack = NULL;
 
 	for (unsigned int i = 0; tmp[i] != '\0'; i++)
-		if (empty(stack) == 1 && tmp[i] == '(')
-			push(tmp[i], stack);
-		else if(empty(stack) == 1 && tmp[i] == ')')
+		if(empty(stack) == 1 && tmp[i] == ')')
 		{
 			push(tmp[i], stack);
 			afiseaza(stack);
@@ -121,6 +121,8 @@ int pop(Node *& stack)
 
 int peek(Node * stack)
 {
+	if (stack == NULL)
+		return -1;
 	return stack -> data;
 }
 
