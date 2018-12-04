@@ -103,17 +103,17 @@ char search(Node * root, int data)
 	return 0;
 
     if (root -> data == data)
-	return 1;
+	    return 1;
     else if (root -> data >= data)
-	return search(root -> left, data);
+	    return search(root -> left, data);
     else
-	return search(root -> right, data);
+	    return search(root -> right, data);
 }
 
 int maxim(Node * root, int data)
 {
     while (root -> right)
-	root = root -> right;
+        root = root -> right;
     return root -> data;
 }
 
