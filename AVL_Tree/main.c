@@ -97,6 +97,26 @@ Node * add_node(Node * root, int data)
     return root;
 }
 
+char search(Node * root, int data)
+{
+    if (root == NULL)
+	return 0;
+
+    if (root -> data == data)
+	return 1;
+    else if (root -> data >= data)
+	return search(root -> left, data);
+    else
+	return search(root -> right, data);
+}
+
+int maxim(Node * root, int data)
+{
+    while (root -> right)
+	root = root -> right;
+    return root -> data;
+}
+
 void in_order_traversal(Node * root)
 {
     if(root != NULL)
